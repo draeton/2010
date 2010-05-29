@@ -372,3 +372,6 @@ label.valid {
 #footer label.error {
     background: #ed1c24;
 }
+#footer label.valid {
+    background: #094747;
+}
