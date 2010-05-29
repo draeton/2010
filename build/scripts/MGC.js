@@ -23,6 +23,7 @@ MGC = window.MGC || {};
 
             var main = new MGC.main();
             main.init();
+            main.setupForms();
 
         }
         

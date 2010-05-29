@@ -10,13 +10,13 @@
 
 /* You might find the following useful */
 br.dirtyLittleTrick { clear:both; display:block; height:1px; margin:-1px 0 0 0 } /* Use this br class to clear your floated columns */
-div { position:relative } /* This will save you having to declare each div's position as 'relative' and allows you to absolutely position elements inside them */
+div { position:relative; z-index: 0; } /* This will save you having to declare each div's position as 'relative' and allows you to absolutely position elements inside them */
 li#theme-switcher { background:#fff; border:10px solid red; padding:20px; position:fixed; top:0; right:0 } /* Use this if you have the Theme Switcher Reloaded plugin (http://themebot.com/webmaster-tools/1-wordpress-theme-switcher-reloaded) installed and want to make it nice and obvious */
 
 div.container {
     width: 960px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: visible;
 }
 .pad-sides {
     padding-left: 10px;
@@ -65,14 +65,6 @@ body {
     margin: 0 0 30px 0;
     padding: 0 15px;
 }
-.breakout {
-    clear: both;
-    margin: 10px;
-    padding: 10px 10px 20px;
-    background: #000;
-    background: url(../images/bg_breakout.jpg) center center;
-    overflow: hidden;
-}
 .project {
     padding: 10px 0 200px;
 }
@@ -80,6 +72,16 @@ body {
 
 /* .breakout */
 /* ----------------------------------------- */
+.breakout {
+    clear: both;
+    margin: 10px;
+    padding: 10px 10px 20px;
+    background: #000;
+    background: url(../images/bg_breakout.jpg) center center;
+    overflow: hidden;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
 .breakout a {
     display: block;
     position: relative;
@@ -109,6 +111,9 @@ body {
 
 /* form */
 /* ----------------------------------------- */
+form p {
+    position: relative;
+}
 input, textarea {
     border: none;
 }
@@ -124,6 +129,9 @@ input.text {
     font-size: 14px;
     line-height: 33px;
 }
+input.error {
+    background: url(../images/input.error.png) no-repeat;
+}
 textarea.text {
     width: 290px;
     padding: 5px 5px;
@@ -132,6 +140,28 @@ textarea.text {
     color: #472510;
     font-size: 14px;
     line-height: 23px;
+}
+textarea.error {
+    background: url(../images/textarea.error.png) no-repeat;
+}
+
+label.error {
+    display: block;
+    position: absolute;
+    top: -12px;
+    right: -20px;
+    z-index: 100;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+    padding: 6px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+label.valid {
+    background: #094747;
 }
 
 /* widget */
@@ -303,11 +333,13 @@ textarea.text {
 #stage blockquote {
     width: 360px;
     height: 210px;
-    background: url(../images/stage-callout.png) no-repeat;
+    background: #094747;
     position: absolute;
     left: 520px;
-    top: 40px;
+    top: 30px;
     padding: 20px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 
@@ -336,4 +368,7 @@ textarea.text {
     margin-top: 18px;
     border-top: 1px dotted #fff;
     padding-top: 18px;
+}
+#footer label.error {
+    background: #ed1c24;
 }

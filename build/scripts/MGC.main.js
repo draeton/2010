@@ -40,55 +40,6 @@ MGC = window.MGC || {};
                 $.localScroll();
             }
 
-            // default values
-            $('input:text, textarea')
-                .focus(function () {
-                    if ($(this).val() == $(this)[0].defaultValue)
-                        $(this).val('');
-                })
-                .blur(function () {
-                    if ($(this).val() === '')
-                        $(this).val($(this)[0].defaultValue);
-                });
-
-            // validation
-            $('#search').submit(function () {
-                $('input:text, textarea', this).each(function () {
-                    if ($(this).val() == $(this)[0].defaultValue)
-                        $(this).val('');
-                });
-            });
-            $('#search').validate({
-                rules: {
-                    s: {
-                        required: true
-                    }
-                },
-                messages: {
-                    s: {
-                        required: "Please enter a search query.",
-                        email: "Please enter a valid email address"
-                    }
-                },
-                submitHandler: function () {
-                    alert('submitted');
-                },
-                success: function (label) {
-                    label.html(' ').addClass('valid');
-                },
-                invalidHandler: function (form, validator) {
-                    var errors = validator.numberOfInvalids();
-                    if (errors) {
-                        $('input:text, textarea', form).each(function () {
-                            if ($(this).val() === '')
-                                $(this).val($(this)[0].defaultValue);
-                        });
-                    }
-                }
-            });
-            $('#dropform').validate();
-            $('#f-dropform').validate();
-
             // slideshow navigation
             $('#plus').click(function () {
                 self.slideAnimate('forward');
@@ -118,6 +69,143 @@ MGC = window.MGC || {};
                         $('span', this).fadeTo('fast', 0.75);
                     }
                 );
+        };
+
+        /*
+         * setupForms
+         *
+         * initialize form validation, triggers, etc.
+         *
+         * @return VOID
+         */
+        this.setupForms = function () {
+            // add US phone validation
+            jQuery.validator.addMethod("phoneUS", function(phone_number, element) {
+                phone_number = phone_number.replace(/\s+/g, "");
+                    return this.optional(element) || phone_number.length > 9 &&
+                            phone_number.match(/^(1-?)?\(?\d{3}\)?[-\.\s]*\d{3}[-\.\s]*\d{4}$/);
+            }, "Please specify a valid phone number");
+
+            // default values
+            $('input:text, textarea')
+                .focus(function () {
+                    if ($(this).val() == $(this)[0].defaultValue)
+                        $(this).val('');
+                })
+                .blur(function () {
+                    if ($(this).val() === '')
+                        $(this).val($(this)[0].defaultValue);
+                });
+
+            // validation
+            $('#search, .dropform').submit(function () {
+                $('input:text, textarea', this).each(function () {
+                    if ($(this).val() == $(this)[0].defaultValue)
+                        $(this).val('');
+                });
+            });
+
+            function valid_submitHandler () {
+                    alert('submitted');
+            }
+            function valid_success (label) {
+                label.html('OK!').addClass('valid');
+            }
+            function valid_invalidHandler (form, validator) {
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    $('input:text, textarea', form).each(function () {
+                        if ($(this).val() === '')
+                            $(this).val($(this)[0].defaultValue);
+                    });
+                }
+            }
+
+            $('#search').validate({
+                rules: {
+                    s: {
+                        required: true
+                    }
+                },
+                messages: {
+                    s: {
+                        required: "Please enter a search query."
+                    }
+                },
+                submitHandler: valid_submitHandler,
+                success: valid_success,
+                invalidHandler: valid_invalidHandler
+            });
+            $('#dropform').validate({
+                rules: {
+                    fullname: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        phoneUS: true
+                    },
+                    message: {
+                        required: true
+                    }
+                },
+                messages: {
+                    fullname: {
+                        required: "Please enter your full name."
+                    },
+                    email: {
+                        required: "Please enter your email address.",
+                        email: "Please enter a valid email address."
+                    },
+                    phone: {
+                        phoneUS: "Please enter a valid phone number."
+                    },
+                    message: {
+                        required: "Please enter your message."
+                    }
+                },
+                submitHandler: valid_submitHandler,
+                success: valid_success,
+                invalidHandler: valid_invalidHandler
+            });
+            $('#f-dropform').validate({
+                rules: {
+                    fullname: {
+                        required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        phoneUS: true
+                    },
+                    message: {
+                        required: true
+                    }
+                },
+                messages: {
+                    fullname: {
+                        required: "Please enter your full name."
+                    },
+                    email: {
+                        required: "Please enter your email address.",
+                        email: "Please enter a valid email address."
+                    },
+                    phone: {
+                        phoneUS: "Please enter a valid phone number."
+                    },
+                    message: {
+                        required: "Please enter your message."
+                    }
+                },
+                submitHandler: valid_submitHandler,
+                success: valid_success,
+                invalidHandler: valid_invalidHandler
+            });
         };
 
         /*
