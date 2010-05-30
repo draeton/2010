@@ -1,0 +1,39 @@
+/* css to style the admin menu nicely */
+
+#adminmenu .mf-menu-edit-posts div.wp-menu-image,
+#adminmenu .mf-menu-edit-pages div.wp-menu-image  {
+    background:transparent url('../../../../wp-admin/images/menu.png') no-repeat scroll -272px -33px;
+}
+#adminmenu .mf-menu-edit-posts:hover div.wp-menu-image {
+	background-position: -272px -1px;
+}
+
+#adminmenu .mf-menu-edit-pages div.wp-menu-image {
+    background-position: -151px -33px;
+}
+#adminmenu .mf-menu-edit-pages:hover div.wp-menu-image {
+	background-position: -151px -1px;
+}
+.mf-field label.error{
+	height:15px;
+	margin-top:-5px;
+	padding-top:5px;
+}
+.Checkbox .block { display: block; }
+.mf-field label.error { display: none; }
+.error_magicfields {
+	background-color:#FFEBE8;
+	border-color:#CC0000; 
+	border-style:solid;
+	border-width:1px;	
+	-moz-border-radius-bottomleft:3px;
+	-moz-border-radius-bottomright:3px;
+	-moz-border-radius-topleft:3px;
+	-moz-border-radius-topright:3px;
+}
+label.error_magicfields {
+	height:13px;
+	padding-top:3px;
+	padding-left:7px;
+}
+.mul_mf .wp_themeSkin .mceStatusbar a.mceResize {top:auto !important;}

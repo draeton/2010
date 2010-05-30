@@ -1,0 +1,13 @@
+/*
+Theme Name: MGC
+Theme URI: http://matthewcobbs.com
+Description: Site theme for Matthew Cobbs 2010
+Version: 1
+Author: Matthew Cobbs
+Author URI: http://matthewcobbs.com
+Tags: chunky, brown, 70s
+*/
+
+@import "style/css/reset.css";
+@import "style/css/typography.css";
+@import "style/css/layout.css";
