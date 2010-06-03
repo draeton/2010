@@ -4,5 +4,5 @@ This is the 2010 Wordpress theme for [matthewcobbs.com](http://matthewcobbs.com)
 
 #License
 
-This software is licensed under a [Creative Commons Attribution License](http://creativecommons.org/licenses/by/2.0/): you may use it, but you must give attribution.
+Matthew Cobbs 2010 by Matthew Cobbs is licensed under a [Creative Commons Attribution 3.0 United States License.](http://creativecommons.org/licenses/by/3.0/us/): you may use it, but you must give attribution.
 
