@@ -18,6 +18,7 @@ MGC = window.MGC || {};
             option; // used to loop through options
         this.curSlide = 0;
         this.maxSlide = $('#stage .slide').length - 1;
+        this.animatingSlide = false;
 
         if (options) {
             for (option in options) {
@@ -58,6 +59,9 @@ MGC = window.MGC || {};
                 $('.tabs li', parent).removeClass('selected').eq(idx).addClass('selected');
                 self.tabAnimate(idx + 1, parent);
                 return false;
+            });
+            $('.tabsPanel').each(function () {
+                $('.tabs a', this).eq(0).click();
             })
 
             // breakout captions
@@ -187,6 +191,9 @@ MGC = window.MGC || {};
          * @return VOID
          */
         this.slideAnimate = function (direction) {
+            if (self.animatingSlide) return;
+            else self.animatingSlide = true;
+
             var nextSlide = self.curSlide,
                 slide = null;
 
@@ -220,7 +227,9 @@ MGC = window.MGC || {};
             // animate to the current slide
             $('#stage .slides').animate({
                     top: '-'+(self.curSlide * 320)
-                }, 400);
+                }, 400, 'linear', function () {
+                    self.animatingSlide = false;
+                });
         };
 
         /*
@@ -234,9 +243,13 @@ MGC = window.MGC || {};
          * @return VOID
          */
         this.tabAnimate = function (tab, context) {
+            // get the height of the panel to display
+            var height = $('.panel', context).eq(tab -1).height();
+
             // animate the panels wrap to the left to the offset of the tab
             $('.panelsWrap', context).animate({
-                    left: '-'+((tab - 1) * 620)
+                    left: '-'+((tab - 1) * 640),
+                    height: height+'px'
                 }, 400);
         };
 

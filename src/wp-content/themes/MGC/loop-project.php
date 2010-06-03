@@ -12,7 +12,7 @@
 $panels = get_group('Panels');
 ?>
 
-            <div class="maincol project" id="project-<?php the_ID(); ?>">
+            <div class="maincol project post" id="project-<?php the_ID(); ?>">
                 <h2 class="title pad-sides"><?php the_title(); ?></h2>
 
                 <div class="tabsPanel">

@@ -23,7 +23,7 @@
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-            <div class="maincol" id="sobre">
+            <div class="maincol post" id="sobre">
 
                 <h1 class="title pad-sides"><?php the_title(); ?></h1>
 

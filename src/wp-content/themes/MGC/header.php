@@ -47,9 +47,9 @@ if ( is_user_logged_in() ) : global $current_user; get_currentuserinfo(); ?>
     </div><!-- end #toolbar -->
 
     <div id="header" class="container">
-        <a id="logo" href="<?php bloginfo('url'); ?>/" class="selected"><?php bloginfo('name'); ?>
+        <a id="logo" href="<?php bloginfo('url'); ?>/" class="<?php if (is_front_page()) echo 'selected'; ?>"><?php bloginfo('name'); ?>
             <img src="<?php bloginfo('template_url'); ?>/style/images/logo.png" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" /></a>
-        <a id="bloglink" href="<?php bloginfo('url'); ?>/blog/">/ blog
+        <a id="bloglink" href="<?php bloginfo('url'); ?>/blog/" class="<?php if (!is_front_page()) echo 'selected'; ?>">/ blog
             <img src="<?php bloginfo('template_url'); ?>/style/images/logo.png" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" /></a>
         <?php get_search_form(); ?>
     </div><!-- end #header -->

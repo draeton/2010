@@ -11,7 +11,7 @@
  * is designed for, generally via the style.css stylesheet.
  */
 if ( ! isset( $content_width ) )
-    $content_width = 620;
+    $content_width = 940;
 
 /** Tell WordPress to run mgc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'mgc_setup' );
@@ -45,8 +45,10 @@ function mgc_setup() {
     add_theme_support( 'automatic-feed-links' );
 
     // set post thumbnail sizes for various post types
-    set_post_thumbnail_size( 100, 100, true );
-    add_image_size( 'project-feature', 940, 310 ); // Permalink thumbnail size
+    set_post_thumbnail_size( 160, 160, true );
+    add_image_size( 'project-feature', 940, 310 ); 
+    add_image_size( 'large', 620, 9999 );
+    add_image_size( 'medium', 340, 9999 );
 
 }
 endif;
