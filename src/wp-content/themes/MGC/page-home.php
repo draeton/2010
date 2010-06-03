@@ -60,7 +60,11 @@ $contact = trim(get('Contact'));
                     </div>
                 </div>
 
-                <p class="pad-sides textright"><strong><a href="#top">Back to the top!</a></strong></p>
+                <div class="pad-sides">
+                    <p class="post-meta">
+                        <a href="#top" class="top title">Top</a>
+                    </p>
+                </div>
                 
             </div><!-- end .maincol -->
 

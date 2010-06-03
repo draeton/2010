@@ -32,7 +32,7 @@ $team = get('Team') ? "Team" : "Solo";
                         <div class="slide" id="s<?php the_ID(); ?>">
                             <?php the_post_thumbnail('project-feature'); ?>
                             <blockquote class="callout">
-                                <h2 class="title"><?php the_title(); ?></h2>
+                                <h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                                 <p><em><?php echo $team; ?>&mdash;<?php echo get_the_term_list( $post->ID, 'Role', '', ', ', '' ); ?></em></p>
                                 <p><?php the_excerpt(); ?></p>
                                 <p class="textright"><a href="#project-<?php the_ID(); ?>">Learn more &raquo;</a></p>

@@ -193,7 +193,7 @@ label.valid {
 .tabsPanel ul.tabs {
     display: block;
     overflow: hidden;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px dotted #fff;
     margin: 0 0 14px 0;
 }
 .tabsPanel ul.tabs li {

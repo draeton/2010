@@ -29,7 +29,7 @@
                 </ul>
 <?php endif; ?>
             </div>
-            <p class="copyright">&copy; Matthew Cobbs 2010. All rights reserved. <span class="alignright"><strong><a href="#top">Back to the top!</a></strong></span></p>
+            <p class="copyright">&copy; Matthew Cobbs 2010. All rights reserved. <a href="#top" class="top title">Top</a></p>
         </div>
     </div><!-- end #footer -->
 

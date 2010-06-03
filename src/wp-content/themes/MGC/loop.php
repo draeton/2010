@@ -15,7 +15,7 @@ $panels = get_group('Panels');
 ?>
 
             <div class="maincol project post" id="project-<?php the_ID(); ?>">
-                <h2 class="title pad-sides"><?php the_title(); ?></h2>
+                <h2 class="title pad-sides"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                 <div class="tabsPanel">
                     <ul class="tabs">
@@ -36,7 +36,11 @@ $panels = get_group('Panels');
                     </div>
                 </div>
 
-                <p class="pad-sides textright"><strong><a href="#top">Back to the top!</a></strong></p>
+                <div class="pad-sides">
+                    <p class="post-meta">
+                        <a href="#top" class="top title">Top</a>
+                    </p>
+                </div>
             </div><!-- end .maincol -->
 
 <?php else : // not projects ?>
@@ -47,6 +51,12 @@ $panels = get_group('Panels');
 
                 <div class="pad-sides">
                     <?php the_content('Read more&hellip;'); ?>
+                </div>
+
+                <div class="pad-sides">
+                    <p class="post-meta">
+                        <a href="#top" class="top title">Top</a>
+                    </p>
                 </div>
 
             </div><!-- end .maincol -->
