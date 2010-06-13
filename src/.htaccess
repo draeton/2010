@@ -1,0 +1,18 @@
+Options +MultiViews
+AddEncoding x-gzip .gz
+AddType text/html .gz
+AddType text/css .gz
+AddType application/x-javascript .gz
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
