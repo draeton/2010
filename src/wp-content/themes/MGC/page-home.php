@@ -44,6 +44,7 @@ $contact = trim(get('Contact'));
                     </ul>
                     <div class="panelsWrap">
                         <div class="panel">
+                            <?php echo get_avatar(get_the_author_meta('email'), $size = '96'); ?>
                             <?php the_content(); ?>
                             <?php edit_post_link( __( 'Edit', 'mgc' ), '<span class="edit-link">', '</span>' ); ?>
                         </div><!-- end .panel -->

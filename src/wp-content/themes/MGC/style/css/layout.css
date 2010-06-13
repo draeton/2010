@@ -71,6 +71,10 @@ body {
 .post {
     margin-bottom: 120px;
 }
+.post .avatar {
+    float: left;
+    margin: 0 12px 12px 0;
+}
 
 
 /* .breakout */
