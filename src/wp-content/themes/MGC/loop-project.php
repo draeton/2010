@@ -36,6 +36,24 @@ $panels = get_group('Panels');
 
                 <div class="pad-sides">
                     <p class="post-meta">
+                        <?php if ( count( get_the_category() ) ) : ?>
+                        <span class="cat-links">
+                                <span class="entry-utility-prep entry-utility-prep-cat-links"><?php printf( __('Posted in %s', 'twentyten' ), '</span> ' . get_the_category_list( ', ' ) ); ?>
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <?php endif; ?>
+                        <?php
+                        $tags_list = get_the_tag_list( '', ', ' );
+                        if ( $tags_list ):
+                        ?>
+                        <span class="tag-links">
+                            <span class="entry-utility-prep entry-utility-prep-tag-links"><?php printf( __('Tagged %s', 'twentyten'), '</span> ' . $tags_list ); ?>
+                        </span>
+                        <span class="meta-sep">|</span>
+                        <?php endif; ?>
+                        <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'twentyten' ), __( '1 Comment', 'twentyten' ), __( '% Comments', 'twentyten' ) ); ?></span>
+                        <?php edit_post_link( __( 'Edit', 'twentyten' ), '<span class="meta-sep">|</span> <span class="edit-link">', '</span>' ); ?>
+
                         <a href="#top" class="top title">Top</a>
                     </p>
                 </div>
